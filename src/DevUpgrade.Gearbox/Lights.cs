@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gearbox
 {
-    public class Lights
+    public class Lights : ILights
     {
         private int position;
 
-        internal int GetLightPositions()
+        public int GetLightPositions()
         {
             // null - brak opcji
             // 1-3 - w dol

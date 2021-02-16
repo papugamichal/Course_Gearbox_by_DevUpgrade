@@ -5,19 +5,19 @@ namespace Gearbox
 {
     public class GearboxDriver
     {
-        private ExternalSystems externalSystems;
-        private Gearbox gearbox;
-        private SoundModule soundModule;
-        private bool ifCaravan;
+        private IExternalSystems externalSystems; // externalSystems = ExternalSystems@1895
+        private IGearbox gearbox;    // gearbox = "Mock for Gearbox, hashCode: x"
+        private SoundModule soundModule; // soundModule = soundMOdule@1909
+        private bool ifCaravan; // ifCaravan = false
 
         private double[] characteristics = new[] { 2_000d, 1_000d, 1_000d, 0.5d, 2_500d, 4_500d, 1_500d, 0.5d, 5_000d, 0.7d, 
-            5_000d, 5_000d, 1_500d, 2_000d, 3_000d, 6_500d };
+            5_000d, 5_000d, 1_500d, 2_000d, 3_000d, 6_500d }; // characteristics = Objects[16]@1906
 
         private int gearBoxDriverMode; // mode 1-Eco, 2-Comfort, 3-Sport, 4-M
 
-        private bool isMDynamicsMode;
+        private bool isMDynamicsMode; // isMDynamicsMode = false
 
-        private int aggresiveMode = 3;
+        private int aggresiveMode = 3; // 1-3 aggresiveMode = 0
 
         public void HandleGas(double threshold)
         {
@@ -52,7 +52,7 @@ namespace Gearbox
                 throw new IllegalStateException();
             }
 
-            double currentRpm = this.gearbox.GetCurrentRpm();
+            double currentRpm = this.externalSystems.GetCurrentRpm();
 
             switch (gearBoxDriverMode)
             {
@@ -286,7 +286,22 @@ namespace Gearbox
                         break;
                     }
             }
-        
+
+        }
+
+        public void SetGearbox(IGearbox gearbox)
+        {
+            this.gearbox = gearbox;
+        }
+
+        public void SetIfCaravan(bool ifCaravan)
+        {
+            this.ifCaravan = ifCaravan;
+        }
+
+        public void SetExternalSystems(IExternalSystems externalSystems)
+        {
+            this.externalSystems = externalSystems;
         }
     }
 

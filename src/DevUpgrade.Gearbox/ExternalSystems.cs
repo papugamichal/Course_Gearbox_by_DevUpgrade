@@ -2,16 +2,21 @@
 
 namespace Gearbox
 {
-    internal class ExternalSystems
+    public class ExternalSystems : IExternalSystems
     {
-        internal int GetAngularSpeed()
+        public int GetAngularSpeed()
         {
             throw new NotImplementedException();
         }
 
-        internal Lights GetLights()
+        public double GetCurrentRpm()
         {
-            return new Lights();
+            throw new NotImplementedException();
+        }
+
+        public ILights GetLights()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -2,31 +2,31 @@
 
 namespace Gearbox
 {
-    class Gearbox
+    public class Gearbox : IGearbox
     {
-        public enum State { }
+        public enum State { S1, S2, S3}
 
-        internal State GetState()
+        public State GetState()
         {
             return default;
         }
 
-        internal int GetCurrentGear()
+        public int GetCurrentGear()
         {
             throw new NotImplementedException();
         }
 
-        internal double GetCurrentRpm()
+        public double GetCurrentRpm()
         {
             throw new NotImplementedException();
         }
 
-        internal int GetMaxDrive()
+        public int GetMaxDrive()
         {
             throw new NotImplementedException();
         }
 
-        internal void SetCurrentGear(int v)
+        public void SetCurrentGear(int v)
         {
             throw new NotImplementedException();
         }
