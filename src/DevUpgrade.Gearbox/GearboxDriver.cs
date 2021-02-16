@@ -8,6 +8,7 @@ namespace Gearbox
         private ExternalSystems externalSystems;
         private Gearbox gearbox;
         private SoundModule soundModule;
+        private bool ifCaravan;
 
         private double[] characteristics = new[] { 2_000d, 1_000d, 1_000d, 0.5d, 2_500d, 4_500d, 1_500d, 0.5d, 5_000d, 0.7d, 
             5_000d, 5_000d, 1_500d, 2_000d, 3_000d, 6_500d };
@@ -57,6 +58,26 @@ namespace Gearbox
             {
                 case 1:
                     {
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null && 
+                            externalSystems.GetLights().GetLightPositions() >= 7)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null &&
+                            externalSystems.GetLights().GetLightPositions() <= 3)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
                         if (isMDynamicsMode && externalSystems.GetAngularSpeed() > 50)
                         {
                             break;
@@ -95,6 +116,26 @@ namespace Gearbox
 
                 case 2:
                     {
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null && 
+                            externalSystems.GetLights().GetLightPositions() >= 7)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null && 
+                            externalSystems.GetLights().GetLightPositions() <= 3)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
                         if (isMDynamicsMode && externalSystems.GetAngularSpeed() > 50)
                         {
                             break;
@@ -156,6 +197,26 @@ namespace Gearbox
 
                 case 3:
                     {
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null && 
+                            externalSystems.GetLights().GetLightPositions() >= 7)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
+                        if (ifCaravan && 
+                            externalSystems.GetLights().GetLightPositions() != null && 
+                            externalSystems.GetLights().GetLightPositions() <= 3)
+                        {
+                            if (currentGear != 1)
+                            {
+                                this.gearbox.SetCurrentGear(currentGear - 1);
+                            }
+                        }
+
                         if (currentRpm < characteristics[6]) // czy zbyt obroty i trzeba zredukowac
                         {
                             if (currentGear != 1)

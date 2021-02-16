@@ -8,5 +8,10 @@ namespace Gearbox
         {
             throw new NotImplementedException();
         }
+
+        internal Lights GetLights()
+        {
+            return new Lights();
+        }
     }
 }
