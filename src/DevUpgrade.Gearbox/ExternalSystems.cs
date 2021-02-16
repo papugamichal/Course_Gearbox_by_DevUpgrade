@@ -1,0 +1,12 @@
+﻿using System;
+
+namespace Gearbox
+{
+    internal class ExternalSystems
+    {
+        internal int GetAngularSpeed()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
