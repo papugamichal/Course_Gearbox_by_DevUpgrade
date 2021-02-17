@@ -2,8 +2,10 @@
 {
     public interface IExternalSystems
     {
-        int GetAngularSpeed();
+        double GetAngularSpeed();
         ILights GetLights();
         double GetCurrentRpm();
+        void SetCurrentRpm(double currentRpm);
+        void SetAngularSpeed(double angularSpeed);
     }
 }

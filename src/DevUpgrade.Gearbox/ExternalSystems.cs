@@ -4,19 +4,37 @@ namespace Gearbox
 {
     public class ExternalSystems : IExternalSystems
     {
-        public int GetAngularSpeed()
+        private double currentRpm;
+        private double angularSpeed;
+        private ILights lights = new Lights();
+
+        private ExternalSystems()
         {
-            throw new NotImplementedException();
+        }
+
+        public double GetAngularSpeed()
+        {
+            return angularSpeed;
+        }
+
+        public void SetAngularSpeed(double angularSpeed)
+        {
+            this.angularSpeed = angularSpeed;
         }
 
         public double GetCurrentRpm()
+        {   // sciagnij rpm z dostepnego miejsca
+            return currentRpm;
+        }
+
+        public void SetCurrentRpm(double currentRpm)
         {
-            throw new NotImplementedException();
+            this.currentRpm = currentRpm;
         }
 
         public ILights GetLights()
         {
-            throw new NotImplementedException();
+            return this.lights;
         }
     }
 }
