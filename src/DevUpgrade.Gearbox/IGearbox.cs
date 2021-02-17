@@ -7,5 +7,6 @@
         int GetMaxDrive();
         Gearbox.State GetState();
         void SetCurrentGear(int v);
+        void SetMaxDrive(int maxDrive);
     }
 }

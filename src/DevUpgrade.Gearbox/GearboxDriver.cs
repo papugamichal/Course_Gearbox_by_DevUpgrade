@@ -19,7 +19,7 @@ namespace Gearbox
 
         private int aggresiveMode = 3; // 1-3 aggresiveMode = 0
 
-        public void HandleGas(double threshold)
+        public void HandleGas()
         {
             if ((int)this.gearbox.GetState() == 2) // park
             { 

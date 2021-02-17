@@ -18,7 +18,7 @@ namespace Gearbox
 
         public int GetCurrentGear()
         {
-            throw new NotImplementedException();
+            return (int)this.gearboxCurrentParams[1];
         }
 
         public double GetCurrentRpm()
@@ -28,7 +28,7 @@ namespace Gearbox
 
         public int GetMaxDrive()
         {
-            throw new NotImplementedException();
+            return this.maxDrive;
         }
 
         public void SetMaxDrive(int maxDrive)

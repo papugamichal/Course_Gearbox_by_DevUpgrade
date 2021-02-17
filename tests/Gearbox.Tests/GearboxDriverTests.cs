@@ -25,7 +25,7 @@ namespace Gearbox.Tests
             externalSystems.Setup(x => x.GetCurrentRpm()).Returns(3_000d);
             driver.SetExternalSystems(externalSystems.Object);
 
-            driver.HandleGas(0.3d);
+            driver.HandleGas();
 
             Assert.That(true, Is.True);
         }

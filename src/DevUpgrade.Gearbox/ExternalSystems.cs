@@ -8,7 +8,7 @@ namespace Gearbox
         private double angularSpeed;
         private ILights lights = new Lights();
 
-        private ExternalSystems()
+        public ExternalSystems()
         {
         }
 
