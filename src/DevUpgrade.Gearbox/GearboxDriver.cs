@@ -157,6 +157,22 @@ namespace Gearbox
         {
             this.externalSystems = externalSystems;
         }
+
+        public void ChangeGear(int gear)
+        {
+            if (gearbox.GetMaxDrive() < gear)
+            {
+                return;
+            }
+
+            if (gear < 1)
+            {
+                return;
+            }
+
+            gearbox.SetCurrentGear(gear);
+        }
+
     }
 
     [Serializable]

@@ -18,7 +18,9 @@ namespace Gearbox.Console
             driver.SetGearbox(gearbox);
             driver.SetExternalSystems(externalsytems);
 
-            driver.HandleGas();
+            driver.HandleGas(0.4);
+
+            driver.ChangeGear(gearbox.GetCurrentGear());
         }
     }
 }
