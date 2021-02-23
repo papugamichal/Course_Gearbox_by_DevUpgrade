@@ -14,7 +14,10 @@ namespace Gearbox
             5_000d, 5_000d, 1_500d, 2_000d, 3_000d, 6_500d }; // characteristics = Objects[16]@1906
 
         private DriveMode mode = DriveMode.Comfort;
+        
         enum DriveMode { Eco, Comfort, Sport }
+
+        int aggresiveMode = 1; // 1 - 2 - 3
 
         public void HandleGas(double threshold)
         {
@@ -62,12 +65,29 @@ namespace Gearbox
                     {
                         if (threshold <= 0.5)
                         {
-                            if (currentRpm > (double)characteristics[2])
+                            if (currentRpm > (double)characteristics[2] && aggresiveMode == 1)
                             {
                                 if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                {
                                     this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
-                                else
                                     Console.WriteLine("nie jest redukcja");
+                                }
+                            }
+                            else if (currentRpm > (double)characteristics[2] * 120 / 100 && aggresiveMode == 1)
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                {
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                    Console.WriteLine("nie jest redukcja");
+                                }
+                            }
+                            else if (currentRpm > (double)characteristics[2] * 130 / 100 && aggresiveMode == 1)
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                {
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                    Console.WriteLine("nie jest redukcja");
+                                }
                             }
                             else if (currentRpm > (double)characteristics[3])
                             {
@@ -92,51 +112,59 @@ namespace Gearbox
                     {
                         if (threshold <= 0.5)
                         {
-                            if (currentRpm > (double)characteristics[6])
+                            if (currentRpm > (double)characteristics[6] && aggresiveMode == 1)
                             {
                                 if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
-                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
-                                else
-                                    Console.WriteLine("nie jest redukcja");
-                            }
-                            else
-                            {
-                                if (currentRpm > (double)characteristics[7])
                                 {
-                                    if ((int)gearbox.GetCurrentGear() != 1)
-                                        this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
-                                    else
-                                        Console.WriteLine("redukcja");
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                    Console.WriteLine("nie jest redukcja");
                                 }
+                            }
+                            else if (currentRpm > (double)characteristics[6] * 120 / 100 && aggresiveMode == 1)
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                {
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                    Console.WriteLine("nie jest redukcja");
+                                }
+                            }
+                            else if (currentRpm > (double)characteristics[6] * 130 / 100 && aggresiveMode == 1)
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                {
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                    Console.WriteLine("nie jest redukcja");
+                                }
+                            }
+                            else if (currentRpm > (double)characteristics[7])
+                            {
+                                if ((int)gearbox.GetCurrentGear() != 1)
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                                else
+                                    Console.WriteLine("redukcja");
                             }
                             break;
                         }
                         else if (threshold > 0.5)
                         {
                             if ((int)gearbox.GetCurrentGear() != 1)
+                            {
                                 this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
-                            else
                                 Console.WriteLine("redukcja");
+                            }
                         }
                         else if (threshold > 0.7)
                         {
                             if ((int)gearbox.GetCurrentGear() != 1)
+                            {
                                 this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
-                            else
-                                Console.WriteLine("redukcja"); if ((int)gearbox.GetCurrentGear() != 1)
-                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
-                            else
                                 Console.WriteLine("redukcja");
-                        }
-
-
-
-                        if (currentRpm > (double)characteristics[7])
-                        {
+                            }
                             if ((int)gearbox.GetCurrentGear() != 1)
+                            {
                                 this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
-                            else
                                 Console.WriteLine("redukcja");
+                            }
                         }
                         break;
                     }
@@ -172,7 +200,6 @@ namespace Gearbox
 
             gearbox.SetCurrentGear(gear);
         }
-
     }
 
     [Serializable]
