@@ -16,7 +16,7 @@ namespace Gearbox
         private DriveMode mode = DriveMode.Comfort;
         enum DriveMode { Eco, Comfort, Sport }
 
-        public void HandleGas()
+        public void HandleGas(double threshold)
         {
             if ((int)this.gearbox.GetState() == 2) // park
             { 
@@ -60,15 +60,25 @@ namespace Gearbox
 
                 case DriveMode.Comfort:
                     {
-                        if (currentRpm > (double)characteristics[2])
+                        if (threshold <= 0.5)
                         {
-                            if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
-                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
-                            else
-                                Console.WriteLine("nie jest redukcja");
+                            if (currentRpm > (double)characteristics[2])
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                else
+                                    Console.WriteLine("nie jest redukcja");
+                            }
+                            else if (currentRpm > (double)characteristics[3])
+                            {
+                                if ((int)gearbox.GetCurrentGear() != 1)
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                                else
+                                    Console.WriteLine("redukcja");
+                            }
+                            break;
                         }
-
-                        if (currentRpm > (double)characteristics[3])
+                        else
                         {
                             if ((int)gearbox.GetCurrentGear() != 1)
                                 this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
@@ -80,14 +90,46 @@ namespace Gearbox
 
                 case DriveMode.Sport:
                     {
-
-                        if (currentRpm > (double)characteristics[6])
+                        if (threshold <= 0.5)
                         {
-                            if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
-                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                            if (currentRpm > (double)characteristics[6])
+                            {
+                                if (this.gearbox.GetMaxDrive() > (int)gearbox.GetCurrentGear())
+                                    this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() + 1);
+                                else
+                                    Console.WriteLine("nie jest redukcja");
+                            }
                             else
-                                Console.WriteLine("nie jest redukcja");
+                            {
+                                if (currentRpm > (double)characteristics[7])
+                                {
+                                    if ((int)gearbox.GetCurrentGear() != 1)
+                                        this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                                    else
+                                        Console.WriteLine("redukcja");
+                                }
+                            }
+                            break;
                         }
+                        else if (threshold > 0.5)
+                        {
+                            if ((int)gearbox.GetCurrentGear() != 1)
+                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                            else
+                                Console.WriteLine("redukcja");
+                        }
+                        else if (threshold > 0.7)
+                        {
+                            if ((int)gearbox.GetCurrentGear() != 1)
+                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                            else
+                                Console.WriteLine("redukcja"); if ((int)gearbox.GetCurrentGear() != 1)
+                                this.gearbox.SetCurrentGear((int)gearbox.GetCurrentGear() - 1);
+                            else
+                                Console.WriteLine("redukcja");
+                        }
+
+
 
                         if (currentRpm > (double)characteristics[7])
                         {
