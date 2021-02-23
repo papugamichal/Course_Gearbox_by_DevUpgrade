@@ -9,9 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9B56CA7C-46E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2215B5FD-B191-43D8-81A2-E264682A0618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gearbox.Tests", "tests\Gearbox.Tests\Gearbox.Tests.csproj", "{2CEA9154-8AE6-4065-8E53-8CA3FF186A26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gearbox.Tests", "tests\Gearbox.Tests\Gearbox.Tests.csproj", "{2CEA9154-8AE6-4065-8E53-8CA3FF186A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gearbox.Console", "src\Gearbox.Console\Gearbox.Console.csproj", "{40671109-6990-49C5-AC2C-6DA7683CED71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gearbox.Console", "src\Gearbox.Console\Gearbox.Console.csproj", "{40671109-6990-49C5-AC2C-6DA7683CED71}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scrCorrect", "scrCorrect", "{02751154-7675-4854-81EA-0C6684CC12C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyProgram", "src\DevUpgrade.GearboxCorrect\MyProgram\MyProgram.csproj", "{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{40671109-6990-49C5-AC2C-6DA7683CED71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40671109-6990-49C5-AC2C-6DA7683CED71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40671109-6990-49C5-AC2C-6DA7683CED71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +47,7 @@ Global
 		{1EFFC3FD-B25C-4103-BB42-A6D8E30DD63C} = {9B56CA7C-46EE-4F93-B16D-A26098480A97}
 		{2CEA9154-8AE6-4065-8E53-8CA3FF186A26} = {2215B5FD-B191-43D8-81A2-E264682A0618}
 		{40671109-6990-49C5-AC2C-6DA7683CED71} = {9B56CA7C-46EE-4F93-B16D-A26098480A97}
+		{DFEAD726-D776-4E0B-B2A0-89C6FD3761C5} = {02751154-7675-4854-81EA-0C6684CC12C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {539C7C10-D7BE-47B5-AAC9-E7F750F1CDC6}
