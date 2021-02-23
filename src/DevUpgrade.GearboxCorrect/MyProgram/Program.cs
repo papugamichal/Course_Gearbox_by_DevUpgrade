@@ -14,26 +14,47 @@ namespace MyProgram
 
         static void Main(string[] args)
         {
+            double currentRpm = externalSystems.GetCurrentRpm();
+            double minRpm = characteristics[0];
+            double maxRpm = characteristics[0];
+            int currentGear = gearbox.GetCurrentGear();
+            int maxDrive = gearbox.GetMaxDrive();
 
-            // if reverse, netural, park => nie rob nic
+            var gear = new BlaBla(minRpm, maxRpm, maxDrive).Invoke(currentRpm, currentGear);
+            gearbox.SetCurrentGear(gear);
+        }
 
-            if (externalSystems.GetCurrentRpm() > characteristics[0])
+        class BlaBla
+        {
+            private double minRpm;
+            private double maxRpm;
+            private int maxDrive;
+
+            public BlaBla(double minRpm, double maxRpm, int maxDrive)
             {
-                if (gearbox.GetCurrentGear() == gearbox.GetMaxDrive()) // ,-- .Equals ????
+                this.minRpm = minRpm;
+                this.maxRpm = maxRpm;
+                this.maxDrive = maxDrive;
+            }
+
+            public int Invoke(double currentRpm, int currentGear)
+            {
+                if (currentRpm > maxRpm)
                 {
-                    gearbox.SetCurrentGear(gearbox.GetCurrentGear() + 1);
+                    if (currentGear == maxDrive)
+                    {
+                        return currentGear + 1;
+                    }
                 }
+                if (currentRpm < minRpm)
+                {
+                    if (currentGear == 1)
+                    {
+                        return currentGear - 1;
+                    }
+                }
+                return currentGear;
             }
-
-            if (externalSystems.GetCurrentRpm() < characteristics[1])
-            {
-                if (gearbox.GetCurrentGear() == 1)
-                    return;
-
-                gearbox.SetCurrentGear(gearbox.GetCurrentGear() - 1);
-            }
-
-            // gearbox.SetGear...
         }
     }
 }
