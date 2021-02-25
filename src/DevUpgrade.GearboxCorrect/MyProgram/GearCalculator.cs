@@ -2,33 +2,35 @@
 
 namespace MyProgram
 {
+
     public class GearCalculator
     {
         private RPM minRpm;
         private RPM maxRpm;
-        private int maxDrive;
+        private readonly RPMRange optimalRange;
+        private Gear maxDrive;
 
-        public GearCalculator(RPM minRpm, RPM maxRpm, int maxDrive)
+        public GearCalculator(RPMRange optimalRange, Gear maxDrive)
         {
-            this.minRpm = minRpm;
-            this.maxRpm = maxRpm;
+            this.optimalRange = optimalRange;
             this.maxDrive = maxDrive;
         }
 
-        public int Calculate(RPM currentRpm, int currentGear)
+        public Gear Calculate(RPM currentRpm, Gear currentGear)
         {
-            if (currentRpm.GreaterThan(maxRpm))
+            if (currentRpm.IsAbove(optimalRange))
             {
-                if (currentGear == maxDrive)
+                if (currentGear.Equals(maxDrive))
                 {
                     return currentGear;
                 }
+                return currentGear.Next();
             }
-            if (currentRpm.LowerThan(minRpm))
+            if (currentRpm.IsBelow(optimalRange))
             {
-                if (currentGear == 1)
+                if (currentGear.Equals(new Gear(1)))
                 {
-                    return currentGear - 1;
+                    return currentGear.Previous();
                 }
             }
             return currentGear;

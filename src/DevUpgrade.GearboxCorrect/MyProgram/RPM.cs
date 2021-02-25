@@ -21,6 +21,16 @@ namespace MyProgram
             return new RPM(rpm);
         }
 
+        internal bool IsAbove(RPMRange optimalRange)
+        {
+            return optimalRange.StartGreaterThan(this);
+        }
+
+        internal bool IsBelow(RPMRange optimalRange)
+        {
+            return optimalRange.EndSmallerThan(this);
+        }
+
         public static RPM k(double k)
         {
             return RPM.rpm((long)(k * 1000));
