@@ -3,7 +3,7 @@ using Gearbox;
 
 namespace MyProgram
 {
-    class Program
+    partial class Program
     {
         private static IExternalSystems externalSystems = new ExternalSystems();
         private static IGearbox gearbox = new Gearbox.Gearbox();
@@ -20,41 +20,8 @@ namespace MyProgram
             int currentGear = gearbox.GetCurrentGear();
             int maxDrive = gearbox.GetMaxDrive();
 
-            var gear = new BlaBla(minRpm, maxRpm, maxDrive).Invoke(currentRpm, currentGear);
+            var gear = new GearCalculator(minRpm, maxRpm, maxDrive).Calculate(currentRpm, currentGear);
             gearbox.SetCurrentGear(gear);
-        }
-
-        class BlaBla
-        {
-            private double minRpm;
-            private double maxRpm;
-            private int maxDrive;
-
-            public BlaBla(double minRpm, double maxRpm, int maxDrive)
-            {
-                this.minRpm = minRpm;
-                this.maxRpm = maxRpm;
-                this.maxDrive = maxDrive;
-            }
-
-            public int Invoke(double currentRpm, int currentGear)
-            {
-                if (currentRpm > maxRpm)
-                {
-                    if (currentGear == maxDrive)
-                    {
-                        return currentGear + 1;
-                    }
-                }
-                if (currentRpm < minRpm)
-                {
-                    if (currentGear == 1)
-                    {
-                        return currentGear - 1;
-                    }
-                }
-                return currentGear;
-            }
         }
     }
 }
