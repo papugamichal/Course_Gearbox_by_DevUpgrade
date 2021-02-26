@@ -9,12 +9,12 @@
             this.value = numer;
         }
 
-        public Gear Next()
+        internal Gear Next()
         {
             return new Gear(this.value + 1);
         }
 
-        public Gear Previous()
+        internal Gear Previous()
         {
             return new Gear(this.value -1 );
         }
@@ -22,6 +22,16 @@
         bool Equals(Gear gear)
         {
             return this.value == gear.value;
+        }
+
+        public bool GreaterThan(Gear gear)
+        {
+            return true;
+        }
+
+        public bool LessOrEqualTo(Gear gear)
+        {
+            return true;
         }
     }
 }
