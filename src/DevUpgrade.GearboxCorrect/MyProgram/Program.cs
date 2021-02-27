@@ -14,9 +14,8 @@ namespace MyProgram
 
         static void Main(string[] args)
         {
-            var gearCalculator = new GearCalculator(characteristics.OptimalRpmRange(), new GearRange(new Gear(1), new Gear(8)));
-            
-            var gearDriver = new GearDriver(rpmProvider, gearbox, gearCalculator);
+            var gearCalculators = new GearCalculators(gearbox, characteristics);
+            var gearDriver = new GearDriver(rpmProvider, gearbox, gearCalculators);
             gearDriver.Recalculate();
         }
     }

@@ -3,12 +3,12 @@
 namespace MyProgram
 {
 
-    public class GearCalculator
+    public class EcoCalculator : IGearCalculator
     {
         private readonly RPMRange optimalRange;
         private readonly GearRange gearRange;
 
-        public GearCalculator(RPMRange optimalRange, GearRange gearRange)
+        public EcoCalculator(RPMRange optimalRange, GearRange gearRange)
         {
             this.optimalRange = optimalRange;
             this.gearRange = gearRange;

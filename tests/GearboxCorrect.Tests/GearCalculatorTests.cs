@@ -10,7 +10,7 @@ namespace GearboxCorrect.Tests
 {
     class GearCalculatorTests
     {
-        private readonly GearCalculator sut;
+        private readonly ComfortCalculator sut;
 
         public GearCalculatorTests()
         {

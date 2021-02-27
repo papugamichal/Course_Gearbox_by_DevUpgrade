@@ -25,5 +25,15 @@ namespace MyProgram.ACLs
         {
             this.gearbox.SetCurrentGear(newGear.ToIntValue());
         }
+
+        public Gear GetFirstGear()
+        {
+            return new Gear(1);
+        }
+
+        public Gear GetMaxDrive()
+        {
+            return new Gear(this.gearbox.GetMaxDrive());
+        }
     }
 }
