@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 
-namespace MyProgram
+namespace PL.Januszsoft.Engine.ValueObjects
 {
     public class RPM : IEqualityComparer<RPM>
     {
@@ -21,12 +21,12 @@ namespace MyProgram
             return new RPM(rpm);
         }
 
-        internal bool IsAbove(RPMRange optimalRange)
+        public bool IsAbove(RPMRange optimalRange)
         {
             return optimalRange.StartGreaterThan(this);
         }
 
-        internal bool IsBelow(RPMRange optimalRange)
+        public bool IsBelow(RPMRange optimalRange)
         {
             return optimalRange.EndSmallerThan(this);
         }

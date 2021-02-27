@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-
-namespace MyProgram
+﻿
+namespace PL.Januszsoft.Engine.ValueObjects
 {
     public class RPMRange
     {
@@ -27,7 +24,7 @@ namespace MyProgram
 
         internal bool StartGreaterThan(RPM rPM)
         {
-            return min.IsAbove(rPM);
+            return !min.LowerThan(rPM);
         }
 
         internal bool EndSmallerThan(RPM rPM)

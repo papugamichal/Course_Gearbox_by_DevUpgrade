@@ -1,10 +1,11 @@
-﻿namespace MyProgram
+﻿using System;
+
+namespace PL.Januszsoft.Driver.ValueObjects
 {
     public class GearRange
     {
         private readonly Gear min;
         private readonly Gear maxGear;
-        private int value;
 
         public GearRange(Gear min, Gear max)
         {
@@ -31,8 +32,7 @@
         {
             return Trim(gear.Previous());
         }
-
-        private Gear Trim(Gear gear)
+        public Gear Trim(Gear gear)
         {
             if (gear.GreaterThan(maxGear))
             {

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DevUpgrade.Gearbox\Gearbox.csproj" />
+    <ProjectReference Include="..\..\pl.januszsoft.carspecific\PL.Januszsoft.CarSpecific.csproj" />
+    <ProjectReference Include="..\..\PL.Januszsoft.Driver\PL.Januszsoft.Driver.csproj" />
+    <ProjectReference Include="..\..\PL.Januszsoft.EngineSpecific\PL.Januszsoft.EngineSpecific.csproj" />
+    <ProjectReference Include="..\..\PL.Januszsoft.GearboxSpecific\PL.Januszsoft.GearboxSpecific.csproj" />
   </ItemGroup>
 
 </Project>

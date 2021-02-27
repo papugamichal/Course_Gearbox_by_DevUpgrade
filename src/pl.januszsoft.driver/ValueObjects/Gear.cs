@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyProgram
+namespace PL.Januszsoft.Driver.ValueObjects
 {
     public class Gear
     {
@@ -11,12 +11,12 @@ namespace MyProgram
             this.Value = numer;
         }
 
-        internal Gear Next()
+        public Gear Next()
         {
             return new Gear(this.Value + 1);
         }
 
-        internal Gear Previous()
+        public Gear Previous()
         {
             return new Gear(this.Value -1 );
         }
@@ -36,7 +36,7 @@ namespace MyProgram
             return true;
         }
 
-        internal int ToIntValue()
+        public int ToIntValue()
         {
             return this.Value;
         }
